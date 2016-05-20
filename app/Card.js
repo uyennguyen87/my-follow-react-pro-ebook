@@ -8,6 +8,11 @@ export default class Card extends Component {
             showDetails: false
         }
     }
+
+    toggleDetails() {
+        this.setState({showDetails: !this.state.showDetails})
+    }
+
     render() {
         let cardDetails;
         if(this.state.showDetails) {
@@ -22,9 +27,7 @@ export default class Card extends Component {
         }
         return (
             <div className="card">
-                <div onClick={
-                    () => this.setState({showDetails: !this.state.showDetails})
-                    } className="card__title">
+                <div onClick={this.toggleDetails.bind(this)} className="card__title">
                     {this.props.title}
                 </div>
                 {cardDetails}
