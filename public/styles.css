@@ -62,10 +62,10 @@ ul {
 .card__title:before {
     display: inline-block;
     width: 1em;
-    content: '';
+    content: '\25B8';
 }
 .card__title--is-open:before {
-    content: '';
+    content: '\25BE';
 }
 .checklist__task:first-child {
     margin-top: 10px;
