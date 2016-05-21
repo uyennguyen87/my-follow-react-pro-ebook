@@ -1,47 +1,34 @@
 import React, { Component } from 'react';
 import {render} from 'react-dom';
 import KanbanBoard  from './KanbanBoard';
+import 'whatwg-fetch';
 
-// class App extends Component {
-//   render(){
-//     return (
-//       <h1>Hello World</h1>
-//     );
-//   }
-// }
+class App extends Component {
+    constructor(){
+        super();
+        this.state={
+            cards: []
+        };
+    }
 
-let cardsList = [
-    {
-        id:1,
-        title:"Read the Book",
-        description:"I should read the **whole** book",
-        status:"in-progress",
-        tasks:[
-        ]
-    },
-    {
-        id:2,
-        title:"Write some code",
-        description:"Code along with the samples in the book. The complete source can be found at [github](https://github.com/pro-react)",
-        status:"todo",
-        tasks:[
-            {
-                id:1,
-                name:"ContactList Example",
-                done:true
-            },
-            {
-                id:2,
-                name:"Kanban Example",
-                done:false
-            },
-            {
-                id:3,
-                name:"My own experiments",
-                done:false
-            }
-        ]
-    },
-];
+    componentDidMount(){
+        var me = this;
+        fetch('./cards.json')
+        .then((response) => response.json())
+        .then((responseData) => {
+            me.setState({cards: responseData});
+        })
+        .catch((error) => {
+            console.log("Error fetching and parsing data", error);
+        })
+    }
 
-render(<KanbanBoard cards={cardsList} />, document.getElementById('root'));
+    render() {
+        return (
+            <KanbanBoard cards={this.state.cards} />
+        )
+    }
+
+}
+
+render(<App />, document.getElementById('root'));
