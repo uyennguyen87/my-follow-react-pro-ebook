@@ -8,7 +8,7 @@ export default class List extends Component {
                     ? '#BD8D31'
                     : card.status === 'todo'
                         ? '#3A7E28'
-                        : '#red';
+                        : '#f0a2e2';
             return <Card
                         key={card.id}
                         color={color}
