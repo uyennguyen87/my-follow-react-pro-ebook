@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {render} from 'react-dom';
 import KanbanBoard  from './KanbanBoard';
 import 'whatwg-fetch';
+import 'babel-polyfill';
 
 class App extends Component {
     constructor(){
