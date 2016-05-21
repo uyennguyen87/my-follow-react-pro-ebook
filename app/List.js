@@ -10,6 +10,7 @@ export default class List extends Component {
                         ? '#3A7E28'
                         : '#red';
             return <Card
+                        key={card.id}
                         color={color}
                         id={card.id}
                         title={card.title}
