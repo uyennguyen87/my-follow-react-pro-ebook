@@ -3,6 +3,7 @@ import {render} from 'react-dom';
 import KanbanBoard  from './KanbanBoard';
 import 'whatwg-fetch';
 import 'babel-polyfill';
+import update from 'react-addons-update';
 
 class App extends Component {
     constructor(){
