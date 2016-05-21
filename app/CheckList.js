@@ -9,7 +9,7 @@ export default class CheckList extends Component {
             return  <li key={key} className="checklist__task">
                 <input type="checkbox" defaultChecked={task.done} />
                 {task.name}
-                <a href="#" className="checkList__task--remove" />
+                <a href="#" className="checklist__task--remove" />
             </li>
         });
 
