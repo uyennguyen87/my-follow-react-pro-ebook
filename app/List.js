@@ -4,7 +4,13 @@ import Card from './Card';
 export default class List extends Component {
     render() {
         var cards = this.props.cards.map(card => {
+            let color = card.status === 'in-progress'
+                    ? '#BD8D31'
+                    : card.status === 'todo'
+                        ? '#3A7E28'
+                        : '#red';
             return <Card
+                        color={color}
                         id={card.id}
                         title={card.title}
                         description={card.description}
